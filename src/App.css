@@ -58,10 +58,10 @@ h1, h2, h3 {
   opacity: 0.9;
 }
 
-.summary-card.yellow { background: #ffc940; }
-.summary-card.blue   { background: #5ab1ff; }
-.summary-card.green  { background: #57d89b; }
-.summary-card.purple { background: #a275ff; }
+.summary-card.yellow { background: #6a4201; }
+.summary-card.blue   { background: #6a4201; }
+.summary-card.green  { background: #6a4201; }
+.summary-card.purple { background: #6a4201 }
 
 /* --- Sections --- */
 .section-block {
@@ -152,16 +152,16 @@ h1, h2, h3 {
   padding: 10px 14px 0 14px;
   text-align: center;
   font-size: 16px;
-  color: #0f172a;
+  color: #000000;
   font-weight: 600;
 }
 
 .device-subtitle {
   width: 100%;
-  padding: 2px 14px 12px 14px;
+  padding: 40px 14px 12px 14px;
   text-align: center;
-  font-size: 14px;
-  color: #6b7280;
+  font-size: 30px;
+  color: #000000;
 }
 
 /* Botones */
@@ -187,13 +187,6 @@ h1, h2, h3 {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(15,23,42,0.06);
 }
-
-.device-toggle.active {
-  background: linear-gradient(90deg,#57d89b,#42c28a);
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(66,194,138,0.18);
-}
-
 .device-button.active {
   background: linear-gradient(90deg,#57d89b,#42c28a);
   color: white;
@@ -264,10 +257,23 @@ h1, h2, h3 {
 
 .device-toggle:hover,
 .device-button:hover {
-  background: #e0e7ff;              /* Color más fuerte al pasar */
+  background:#038618;              /* Color más fuerte al pasar */
 }
 
 .device-toggle.active,
 .device-button.active {
-  border: 2px solid #42c28a;        /* Borde para estado activo */
+  border: 2px solid #ffffff;        /* Borde para estado activo */
+}
+.device-icon {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+.sensor-image {
+  width: 75%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  
 }

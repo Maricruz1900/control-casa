@@ -4,6 +4,22 @@ import client from "../mqtt/mqttClient";
 export default function SensorStatus({ name, topic }) {
   const [status, setStatus] = useState("0"); // 0 = abierto, 1 = cerrado
 
+  // 🔥 Elegir imagen según el nombre
+  const getImage = () => {
+    switch (name.toLowerCase()) {
+      case "puerta 1":
+        return "/img/puerta1.jpg";
+      case "puerta 2":
+        return "/img/puerta2.jpg";
+      case "ventana 1":
+        return "/img/ventana1.jpg";
+      case "ventana 2":
+        return "/img/ventana2.jpg";
+      default:
+        return "/img/default.jpg";
+    }
+  };
+
   useEffect(() => {
     client.subscribe(topic);
 
@@ -21,27 +37,16 @@ export default function SensorStatus({ name, topic }) {
     };
   }, [topic]);
 
-  const toggle = () => {
-    const newState = status === "1" ? "0" : "1";
-
-    // 🔥 Actualiza el estado inmediatamente
-    setStatus(newState);
-
-    // 🔥 Publica al MQTT
-    client.publish(topic, newState);
-  };
-
   return (
     <div className="device-card">
       <div className="device-caption">{name}</div>
 
+      {/* IMAGEN */}
+      <img src={getImage()} alt={name} className="sensor-image" />
+
       <div className="device-subtitle">
         {status === "1" ? "Cerrado" : "Abierto"}
       </div>
-
-      <button className="device-toggle" onClick={toggle}>
-        {status === "1" ? "Abrir" : "Cerrar"}
-      </button>
     </div>
   );
 }
